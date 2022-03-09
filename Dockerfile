@@ -30,7 +30,7 @@ RUN mkdir $WORKDIR && \
 WORKDIR $WORKDIR
 
 # Get Source files and install prerequisites
-COPY src/* .
+COPY src/* ./
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
 
@@ -44,7 +44,7 @@ RUN pip install -r requirements.txt
 
 # Create Python default user
 RUN useradd -m -r $PYTHONUSER && \
-    chown user $WORKDIR
+    chown $PYTHONUSER $WORKDIR
 
 COPY . /src
 
