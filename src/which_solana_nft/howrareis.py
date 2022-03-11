@@ -6,7 +6,6 @@ import os.path
 import sys
 import subprocess
 import urllib3, sys, os, getopt, json, re
-from pymongo import MongoClient
 import operator
 from which_solana_nft.twitterFollowersCount import *
 import time

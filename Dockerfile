@@ -11,7 +11,7 @@ LABEL name="which solana nft to mint." \
 # Define environnment variables
 ENV TINI_VERSION="v0.19.0"
 ENV WORKDIR=/data
-ENV PYTHONUSER=python
+# ENV PYTHONUSER=python
 
 # Define arguments we can pass to the docker build
 ARG TOP
@@ -43,17 +43,17 @@ RUN pip install -U \
 RUN pip install -r requirements.txt
 
 # Create Python default user
-RUN useradd -m -r $PYTHONUSER && \
-    chown $PYTHONUSER $WORKDIR
+# RUN useradd -m -r $PYTHONUSER && \
+#     chown $PYTHONUSER $WORKDIR
 
-COPY . /src
+COPY src/ /$WORKDIR/
 
 # Install dependencies
 RUN pip install -r requirements.txt
 
-USER $PYTHONUSER
+USER root
 
 # Execute python script
 ENTRYPOINT ["/tini", "--"]
 
-CMD [ "sh", "c", "python run.py --top=${TOP} --period=${PERIOD}" ]
+CMD [ "sh", "-c", "python run.py --top=$TOP --period=$PERIOD" ]

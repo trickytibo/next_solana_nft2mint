@@ -58,3 +58,13 @@ With Parameters :
 ```
 $ python src/run.py --top 5 --period 10
 ```
+
+
+## How to use the docker image
+
+```bash
+$ docker build nextsolananft2mint
+
+$ docker volume create myvol
+$ docker run --mount source=myvol,target=/data nextsolananft2mint
+```
