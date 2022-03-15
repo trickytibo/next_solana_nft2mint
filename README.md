@@ -63,8 +63,24 @@ $ python src/run.py --top 5 --period 10
 ## How to use the docker image
 
 ```bash
+# Build locally the image of the docker container
 $ docker build nextsolananft2mint
-
+# Create a local volume to associate with the running container. Result files of the job will then be accessible.  
 $ docker volume create myvol
+# Running Container
 $ docker run --mount source=myvol,target=/data nextsolananft2mint
+```
+
+You may find a already builded Docker image [here](https://hub.docker.com/r/trickytibo/next_solana_nft2mint). 
+
+The result after executing the script : 
+
+![Results](img/results.PNG)
+
+## A coffee ? 
+
+If you are pleased with the work done, you might pay me a coffee (Solana Address)  ;) 
+
+```bash
+H1X6sguyTdeATQXCDGgiqdHSpAkxHN63zE7x9QAuq7y7
 ```
